@@ -21,4 +21,16 @@ export class ProductService {
   delete(id: any) : Observable<Product>{
     return this.http.delete<Product>(`${this.urlEndPoint}/${id}`,{headers:this.httpHeaders})
   }
+  //service para crear un producto
+  create(product: Product): Observable<Product>{
+    return this.http.post<Product>(this.urlEndPoint,product,{headers:this.httpHeaders})
+  }
+  //service para traer un producto
+  getProductsByid(id:any): Observable<Product>{
+    return this.http.get<Product>(`${this.urlEndPoint}/${id}`)
+  }
+  //servicio para actualizar un producto
+   update(product: Product): Observable<Product>{
+    return this.http.put<Product>(`${this.urlEndPoint}/${product.id}`,product,{headers:this.httpHeaders})
+   }
 }

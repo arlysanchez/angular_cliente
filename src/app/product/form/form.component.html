@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">{{titulo}}</div>
+
+     <div class="card-body">
+      
+      <!-- para solo crear
+        <form (ngSubmit)="create()">-->
+        <form>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">nombre</label>
+          <input type="text" class="form-control" [(ngModel)]="product.name" name="nombre">
+               </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">descripcion</label>
+          <input type="text" class="form-control" [(ngModel)]="product.description" name="description">
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">price</label>
+          <input type="number" class="form-control" [(ngModel)]="product.price" name="price">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)='create()' *ngIf="!product.id else elseBlock">Crear</button>
+        <ng-template #elseBlock>
+          <button type="submit" class="btn btn-primary" (click)='update()' >Editar</button>
+        </ng-template>
+      </form>
+  
+
+
+     </div>
+</div>
